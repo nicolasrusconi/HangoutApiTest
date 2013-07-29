@@ -59,7 +59,11 @@
 
     // Use an onLoad handler
     arbitraryResource.onLoad.add( function(event) {
+      console.log("resource");
       console.log(arbitraryResource);
+      console.log("url");
+      console.log(arbitraryResource.getURL());
+      console.log("event");
       console.log(event);
       if (!event.isLoaded) {
         alert("Could not load your overlay.");
