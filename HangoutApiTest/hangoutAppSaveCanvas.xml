@@ -37,12 +37,12 @@
     var img = new Image();
     img.onload = function() { ctx.drawImage(img, 50, 50); }
     //img.src = "picture.jpg";
-    img.src = "https://lh5.googleusercontent.com/-SBpxcvgGc4g/UfaEW943UUI/AAAAAAAAABo/HsWxOic8AOQ/s0/hangout_snapshot_5.png";
+    img.src = "http://lh6.googleusercontent.com/-lE3sY2vwZd8/Ufa6o_9IlRI/AAAAAAAAACY/TqbK0InH9ek/s0/hangout_snapshot_1.png";
 
     var img2 = new Image();
     img2.onload = function() { ctx.drawImage(img2, 0, 0); }
     //img2.src = "scream.jpg";
-    img2.src = "https://lh6.googleusercontent.com/-M7Eym_cMck4/UfauFZQCLDI/AAAAAAAAAB4/tn25LGttXOI/s0/hangout_snapshot_6.png";
+    img2.src = "http://lh4.googleusercontent.com/-MbG6A8DvOK8/Ufa6oUc0XKI/AAAAAAAAACU/_trtEOfaLF8/s0/hangout_snapshot_0.png";
     
     saveCanvas = function() {
       var canvas = document.getElementById("myCanvas");
