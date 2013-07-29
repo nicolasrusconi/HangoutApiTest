@@ -25,45 +25,41 @@
     </style>
     <body>
       <script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script> 
-      <h3>Hangout App</h3> 
-      <p> 
-        <input class="button" type="button" value="Show participants!" id="showParticipants" style="visibility:hidden;"
-         onClick="showParticipants()"/> 
-      </p>
-      <div id="participantsDiv"></div> 
-      <hr> 
-      <p>
-        <a href="http://developers.google.com/+/hangouts/getting-started">Read the docs</a> to learn more about developing hangouts!</a>
-      </p>
       <canvas id="myCanvas" width="700" height="700" style="border:1px solid #000000;">
         Your browser does not support the HTML5 canvas tag.
       </canvas>
+      <button onclick="saveCanvas();"> Save </button>
+
       <script> 
-        function showParticipants() { 
-          var participants = gapi.hangout.getParticipants();
-          var retVal = '<p>Participants: </p><ul>';
-          for (var index in participants) { 
-            var participant = participants[index]; 
-            if (!participant.person) { 
-              retVal += '<li>A participant not running this app</li>'; 
-            } 
-            retVal += '<li>' + participant.person.displayName + '</li>'; 
-          }
-          retVal += '</ul>'; 
-          var div = document.getElementById('participantsDiv'); 
-          div.innerHTML = retVal; 
-        }
-        
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    
+    var img = new Image();
+    img.onload = function() { ctx.drawImage(img, 50, 50); }
+    //img.src = "picture.jpg";
+    img.src = "https://lh5.googleusercontent.com/-SBpxcvgGc4g/UfaEW943UUI/AAAAAAAAABo/HsWxOic8AOQ/s0/hangout_snapshot_5.png";
+
+    var img2 = new Image();
+    img2.onload = function() { ctx.drawImage(img2, 0, 0); }
+    //img2.src = "scream.jpg";
+    img2.src = "https://lh6.googleusercontent.com/-M7Eym_cMck4/UfauFZQCLDI/AAAAAAAAAB4/tn25LGttXOI/s0/hangout_snapshot_6.png";
+    
+    saveCanvas = function() {
+      var canvas = document.getElementById("myCanvas");
+      var img = canvas.toDataURL("image/jpg");
+      //Convert image to 'octet-stream' (Just a download, really)
+      img.replace("image/png", "image/octet-stream"); 
+      window.location.href = img;      
+    }        
         function init() { 
           // When API is ready... 
           gapi.hangout.onApiReady.add( function(eventObj) {
-            if (eventObj.isApiReady) { 
-              document.getElementById('showParticipants') .style.visibility = 'visible'; 
-            }
           });
         } 
         // Wait for gadget to load. 
         gadgets.util.registerOnLoadHandler(init);
+        
+        
       </script>
     </body>
   ]]>
