@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <canvas id="myCanvas" width="700" height="700" style="border:1px solid #000000;">
+    Your browser does not support the HTML5 canvas tag.
+  </canvas>
+
+  <img id="scream" src="scream.jpg" alt="ole">
+
+  <script>
+    var c = document.getElementById("myCanvas");
+    var img2 = document.getElementById("scream");
+    var ctx = c.getContext("2d");
+    ctx.drawImage(img2,10,10);
+    console.log(ctx.drawImage);
+    console.log(img2);
+    //var img = new Image(); 
+    //img.src = "picture.jpg";
+  </script>
+
+</body>
+</html>
