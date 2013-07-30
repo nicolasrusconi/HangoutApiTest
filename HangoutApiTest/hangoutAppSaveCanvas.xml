@@ -54,43 +54,36 @@
         function init() { 
           // When API is ready... 
           gapi.hangout.onApiReady.add( function(eventObj) {
-              // Allocate image resource
-    var arbitraryResource = gapi.hangout.av.effects.createImageResource("http://lh6.googleusercontent.com/-lE3sY2vwZd8/Ufa6o_9IlRI/AAAAAAAAACY/TqbK0InH9ek/s0/hangout_snapshot_1.png");
+            // Allocate image resource
+			var arbitraryResource = gapi.hangout.av.effects.createImageResource("http://lh6.googleusercontent.com/-lE3sY2vwZd8/Ufa6o_9IlRI/AAAAAAAAACY/TqbK0InH9ek/s0/hangout_snapshot_1.png");
+			
+			// Use an onLoad handler
+			arbitraryResource.onLoad.add( function(event) {
+			  console.log("resource");
+			  console.log(arbitraryResource);
+			  console.log("event");
+			  console.log(event);
+			
+			  if (!event.isLoaded) {
+			    alert("Could not load your overlay.");
+			    arbitraryResource.dispose();
+			  } else {
+			    alert("Overlay loaded.");
+			  }
+		    });
 
-    // Use an onLoad handler
-    arbitraryResource.onLoad.add( function(event) {
-      console.log("resource");
-      console.log(arbitraryResource);
-      console.log("event");
-      console.log(event);
-      console.log("url");
-      console.log(arbitraryResource.getURL());
-      
-      if (!event.isLoaded) {
-        alert("Could not load your overlay.");
-        arbitraryResource.dispose();
-      } else {
-        alert("Overlay loaded.");
-      }
-      
-      //ctx.drawImage(img2, 0, 0);
-    });
-    
-      // Create a statically positioned overlay that will be 50% of the width
-  // of the video feed.
-  var arbitraryOverlay = arbitraryResource.createOverlay(
-    {'scale':
-      {'magnitude': 0.5,
-       'reference': gapi.hangout.av.effects.ScaleReference.WIDTH}});
-
-  // Place the text x-centered and halfway down the frame
-  arbitraryOverlay.setPosition(0, 0.25);
-  arbitraryOverlay.setVisible(true);
-  
-  
-  
-    
-          });
+		    // Create a statically positioned overlay that will be 50% of the width
+		    // of the video feed.
+		    var arbitraryOverlay = arbitraryResource.createOverlay(
+		      {'scale':
+		        {'magnitude': 0.5,
+		         'reference': gapi.hangout.av.effects.ScaleReference.WIDTH}});
+		
+		    // Place the text x-centered and halfway down the frame
+		    arbitraryOverlay.setPosition(0, 0.25);
+		    arbitraryOverlay.setVisible(true);
+		    console.log(arbitraryResource.getUrl());
+         });
         } 
         // Wait for gadget to load. 
         gadgets.util.registerOnLoadHandler(init);
