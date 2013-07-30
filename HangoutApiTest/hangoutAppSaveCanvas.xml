@@ -66,6 +66,7 @@
 			  } else {
 			    alert("Overlay loaded.");
 			  }
+			  console.log(arbitraryResource);
 			  ctx.drawImage(arbitraryResource, 0, 0); 
 		    });
 
@@ -79,7 +80,6 @@
 		    // Place the text x-centered and halfway down the frame
 		    arbitraryOverlay.setPosition(0, 0.25);
 		    arbitraryOverlay.setVisible(true);
-  		    ctx.drawImage(arbitraryResource, 0, 0);
 
 		    console.log(arbitraryResource.getUrl());
          });
