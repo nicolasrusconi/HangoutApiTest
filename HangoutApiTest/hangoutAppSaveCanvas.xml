@@ -56,7 +56,7 @@
           // When API is ready... 
           gapi.hangout.onApiReady.add( function(eventObj) {
             // Allocate image resource
-			var arbitraryResource = gapi.hangout.av.effects.createImageResource("http://lh6.googleusercontent.com/-lE3sY2vwZd8/Ufa6o_9IlRI/AAAAAAAAACY/TqbK0InH9ek/s0/hangout_snapshot_1.png");
+			arbitraryResource = gapi.hangout.av.effects.createImageResource("http://lh6.googleusercontent.com/-lE3sY2vwZd8/Ufa6o_9IlRI/AAAAAAAAACY/TqbK0InH9ek/s0/hangout_snapshot_1.png");
 			
 			// Use an onLoad handler
 			arbitraryResource.onLoad.add( function(event) {
