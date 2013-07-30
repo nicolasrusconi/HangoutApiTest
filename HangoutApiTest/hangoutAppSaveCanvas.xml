@@ -64,9 +64,14 @@
 			    alert("Could not load your overlay.");
 			    arbitraryResource.dispose();
 			  } else {
+			    var all = "";
+			    for (var key in arbitraryResource) {
+			      all = all + ":" + key;
+			    }
 			    alert("Overlay loaded." + arbitraryResource);
-			    alert(arbitraryResource.length);
+			    alert(all);
 			  }
+			  
 			  console.log(arbitraryResource);
 			  ctx.drawImage(arbitraryResource, 0, 0); 
 		    });
