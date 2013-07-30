@@ -64,14 +64,10 @@
 			    alert("Could not load your overlay.");
 			    arbitraryResource.dispose();
 			  } else {
-			    var all = "";
-			    for (var key in arbitraryResource) {
-			      all = all + key + ":" + arbitraryResource[key] + "\n";
-			    }
 			    alert("Overlay loaded." + arbitraryResource);
-			    console.log(arbitraryResource.toString);
-			    console.log(arbitraryResource);
-			    //alert(all);
+			    for (var key in arbitraryResource) {
+			      console.log(key + ":" + arbitraryResource[key]);
+			    }
 			  }
 			  
 			  console.log(arbitraryResource);
