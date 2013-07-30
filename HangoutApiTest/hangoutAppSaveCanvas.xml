@@ -60,17 +60,13 @@
 			
 			// Use an onLoad handler
 			arbitraryResource.onLoad.add( function(event) {
-			  console.log("resource");
-			  console.log(arbitraryResource);
-			  console.log("event");
-			  console.log(event);
-			
 			  if (!event.isLoaded) {
 			    alert("Could not load your overlay.");
 			    arbitraryResource.dispose();
 			  } else {
 			    alert("Overlay loaded.");
 			  }
+			  ctx.drawImage(arbitraryResource, 0, 0); 
 		    });
 
 		    // Create a statically positioned overlay that will be 50% of the width
@@ -83,13 +79,13 @@
 		    // Place the text x-centered and halfway down the frame
 		    arbitraryOverlay.setPosition(0, 0.25);
 		    arbitraryOverlay.setVisible(true);
+  		    ctx.drawImage(arbitraryResource, 0, 0);
+
 		    console.log(arbitraryResource.getUrl());
          });
         } 
         // Wait for gadget to load. 
         gadgets.util.registerOnLoadHandler(init);
-        
-        
       </script>
     </body>
   ]]>
