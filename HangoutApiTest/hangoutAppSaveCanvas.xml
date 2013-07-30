@@ -64,7 +64,7 @@
       console.log("event");
       console.log(event);
       console.log("url");
-      console.log(arbitraryResource.getURL());
+      //console.log(arbitraryResource.getURL());
       
       if (!event.isLoaded) {
         alert("Could not load your overlay.");
@@ -75,6 +75,21 @@
       
       //ctx.drawImage(img2, 0, 0);
     });
+    
+      // Create a statically positioned overlay that will be 50% of the width
+  // of the video feed.
+  var arbitraryOverlay = arbitraryResource.createOverlay(
+    {'scale':
+      {'magnitude': 0.5,
+       'reference': gapi.hangout.av.effects.ScaleReference.WIDTH}});
+
+  // Place the text x-centered and halfway down the frame
+  arbitraryOverlay.setPosition(0, 0.25);
+  arbitraryOverlay.setVisible(true);
+  
+  
+  
+    
           });
         } 
         // Wait for gadget to load. 
