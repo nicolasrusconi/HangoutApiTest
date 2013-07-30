@@ -69,7 +69,9 @@
 			      all = all + key + ":" + arbitraryResource[key] + "\n";
 			    }
 			    alert("Overlay loaded." + arbitraryResource);
-			    alert(all);
+			    console.log(arbitraryResource.toString);
+			    console.log(arbitraryResource);
+			    //alert(all);
 			  }
 			  
 			  console.log(arbitraryResource);
